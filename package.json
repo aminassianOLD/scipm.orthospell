@@ -1,0 +1,112 @@
+{
+    "main": "index.js",
+    "name": "scipm.orthospell",
+    "version": "0.1.0",
+    "description": "scipm.orthospell is a spell checker for the SciTE editor. It is based on orthospell by Urs Eberle (http://tools.diorama.ch/orthospell.html).",
+    "license": "GPL-3.0",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/aminassian/scipm.orthospell.git"
+    },
+    "bugs": {
+        "type": "git",
+        "url": "git://github.com/aminassian/scipm.orthospell/issues"
+    },
+    "keywords": [
+        "scipm-package"
+    ],
+    "dependencies": {
+        "scipm": "^1.0.0"
+    },
+    "scipmchild": {
+        "version": "1",
+        "scipmDependencies": {
+            "scipm.extman": null
+        },
+        "luaRequire": [],
+        "SciTEStartup": {
+            "_use": "dofile",
+            "raw": null,
+            "filePath": null,
+            "dofile": [
+                "scite",
+                "main.lua"
+            ],
+            "luaReportExtend": "scipm.core.printInfoPackage(\"scipm.orthospell\");",
+            "infoLuaFunctions": [
+                {
+                    "name": "scipm.orthospell.userdictionary()"
+                },
+                {
+                    "name": "scipm.orthospell.inline_spell()"
+                }
+            ],
+            "infoFiles": [
+                {
+                    "path": [
+                        "README.md"
+                    ]
+                },
+                {
+                    "path": [
+                        "package.json"
+                    ]
+                },
+                {
+                    "path": [
+                        "scite",
+                        "main.lua"
+                    ]
+                }
+            ],
+            "infoProps": [
+            ]
+        },
+        "actions": {
+            "ToggleSpelling": {
+                "title": "Orthospell > Toggle Spelling",
+                "description": "Orthospell for SciTE",
+                "pattern": [
+                    "*"
+                ],
+                "addToolsMenu": {
+                    "allow": true,
+                    "addContextMenu": true,
+                    "command": {
+                        "shortcuts": "F9",
+                        "subsystem": "luadirector",
+                        "cmd": "dostring scipm.orthospell.inline_spell()",
+                        "isFilter": null,
+                        "saveBefore": "2",
+                        "input": null,
+                        "replaceSelection": null,
+                        "quiet": null,
+                        "mode": null
+                    }
+                }
+            },
+            "SetDict": {
+                "title": "Orthospell > Dictionaries",
+                "description": "Orthospell > List dictionary",
+                "pattern": [
+                    "*"
+                ],
+                "addToolsMenu": {
+                    "allow": true,
+                    "addContextMenu": false,
+                    "command": {
+                        "shortcuts": null,
+                        "subsystem": "luadirector",
+                        "cmd": "dostring scipm.orthospell.userdictionary()",
+                        "isFilter": null,
+                        "saveBefore": "2",
+                        "input": null,
+                        "replaceSelection": null,
+                        "quiet": null,
+                        "mode": null
+                    }
+                }
+            }
+        }
+    }
+}

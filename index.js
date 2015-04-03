@@ -1,0 +1,1 @@
+console.log("scipm.orthospell is not a classic nodejs/iojs module")
